@@ -40,7 +40,9 @@ class UserInfoController extends Controller {
 
         $csvFile = file($request->userinfo);
 
-        $chankData = array_chunk($csvFile, 500);
+        $fileName = $request->file('userinfo')->getClientOriginalName() . '_' . time();
+
+        $chankData = array_chunk($csvFile, 1000);
 
         // return $chankData;
         $header    = null;
@@ -52,7 +54,7 @@ class UserInfoController extends Controller {
                 $header = $dataMaps[0];
                 unset($dataMaps[0]);
             }
-            $batchData->add(new ProcessUserInfoCsv($dataMaps, $header));
+            $batchData->add(new ProcessUserInfoCsv($dataMaps, $header, $fileName));
 
         }
 
