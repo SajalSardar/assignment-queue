@@ -52,7 +52,7 @@
                 <div class="app-brand demo">
                     <a href="{{ route('home') }}" class="app-brand-link">
 
-                        <h2>User Upload</h2>
+                        <h2>User Info</h2>
                     </a>
 
                     <a href="javascript:void(0);"
