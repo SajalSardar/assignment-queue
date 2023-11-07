@@ -161,7 +161,7 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="../assets/img/avatars/1.png" alt
+                                                        <img src="{{ Avatar::create(auth()->user()->name) }}" alt
                                                             class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
@@ -203,9 +203,6 @@
                     <!-- Content -->
                     @yield('content')
 
-                    <!-- / Content -->
-
-                    <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div
                             class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
