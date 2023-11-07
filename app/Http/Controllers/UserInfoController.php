@@ -7,13 +7,26 @@ use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserInfoController extends Controller {
     /**
      * Display a listing of the resource.
      */
     public function index() {
-        //
+        return view('user_info.index');
+    }
+    /**
+     * Display a listing using data table.
+     */
+    public function listDatatable() {
+        $datas = UserInfo::query();
+        return DataTables::of($datas)
+            ->editColumn('created_at', function ($datas) {
+                return $datas->created_at->format('d M Y');
+            })
+            ->addIndexColumn()
+            ->make(true);
     }
 
     /**

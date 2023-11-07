@@ -25,4 +25,6 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::post('/user-info-upload', [UserInfoController::class, 'store'])->name('user.meta.upload');
+    Route::get('/user-info-list', [UserInfoController::class, 'index'])->name('user.meta.list');
+    Route::get('/user-info-list-datatable', [UserInfoController::class, 'listDatatable'])->name('user.meta.list.datatable');
 });
