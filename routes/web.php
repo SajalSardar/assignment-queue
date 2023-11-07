@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\uploadCsvFileReportController;
 use App\Http\Controllers\UserInfoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,15 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::post('/user-info-upload', [UserInfoController::class, 'store'])->name('user.meta.upload');
-    Route::get('/user-info-list', [UserInfoController::class, 'index'])->name('user.meta.list');
-    Route::get('/user-info-list-datatable', [UserInfoController::class, 'listDatatable'])->name('user.meta.list.datatable');
+    Route::controller(UserInfoController::class)->prefix('user-info')->name('user.meta.')->group(function () {
+        Route::post('/upload', 'store')->name('upload');
+        Route::get('/list', 'index')->name('list');
+        Route::get('/list-datatable', 'listDatatable')->name('list.datatable');
+        Route::get('/list-datatable', 'listDatatable')->name('list.datatable');
+    });
+
+    Route::controller(uploadCsvFileReportController::class)->prefix('uploaded-csv-file')->name('uploaded.csvfile.')->group(function () {
+        Route::get('/report', 'csvFileReport')->name('report');
+        Route::get('/report-datatable', 'csvFileReportDatatable')->name('report.datatable');
+    });
 });

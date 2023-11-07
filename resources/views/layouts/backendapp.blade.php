@@ -77,6 +77,12 @@
                             <div data-i18n="Analytics">User Info</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ request()->routeIs('uploaded.csvfile.report') ? 'active' : '' }}">
+                        <a href="{{ route('uploaded.csvfile.report') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-crown"></i>
+                            <div data-i18n="Analytics">Uploaded File Report</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
