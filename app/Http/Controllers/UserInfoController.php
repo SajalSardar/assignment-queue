@@ -40,20 +40,22 @@ class UserInfoController extends Controller {
 
         $csvFile = file($request->userinfo);
 
-        $chankData = array_chunk($csvFile, 1);
+        $chankData = array_chunk($csvFile, 500);
 
-        //return $dataMaps;
+        // return $chankData;
         $header    = null;
         $batchData = Bus::batch([])->dispatch();
 
-        foreach ($chankData as $key => $data) {
+        foreach ($chankData as $data) {
             $dataMaps = array_map('str_getcsv', $data);
             if (!$header) {
                 $header = $dataMaps[0];
                 unset($dataMaps[0]);
             }
             $batchData->add(new ProcessUserInfoCsv($dataMaps, $header));
+
         }
+
         toastr()->addSuccess('CSV file uploaded and is being processed.');
         return redirect()->back();
     }
