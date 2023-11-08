@@ -5,6 +5,10 @@
 -   **User Name:** admin@mail.com
 -   **Password:** 12345678
 
+## Useing Command
+
+-   **php artisan queue:work**
+
 ## Controller
 
 -   **userInfoController:** Implemented upload and store process methos.
