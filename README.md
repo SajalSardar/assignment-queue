@@ -7,7 +7,7 @@
 
 ## Controller
 
--   **UserInfoController:** Implemented upload and store process methos.
+-   **userInfoController:** Implemented upload and store process methos.
 -   **uploadCsvFileReportController:** Implemented report generation methods in this controller.
 
 ## Table
