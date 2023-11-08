@@ -72,6 +72,22 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="row mt-3">
+                                <div for="password" class="col-md-4 text-md-end">{{ __('User Name :') }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    <p class="mb-0">admin@mail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div for="password" class="col-md-4 text-md-end">{{ __('Password :') }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    <p class="mb-0">12345678</p>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
