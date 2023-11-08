@@ -40,8 +40,6 @@ class ProcessUserInfoCsv implements ShouldQueue {
 
             $combineData = array_combine($this->header, $userInfo);
 
-            $isEmptyValue = empty(array_filter($combineData));
-
             $duplicateEmail = UserInfo::where('email', $combineData['email'])->orWhere('phone', $combineData['phone'])->exists();
 
             $emailCheck = preg_match('/^[\w\.-]+@[\w\.-]+\.\w+$/', $combineData['email']);
